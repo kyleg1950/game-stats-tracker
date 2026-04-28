@@ -7,39 +7,37 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="setup-screen">
-        <h1>Setup Screen</h1>
-        <label for="team-name">Team Name:</label>
-        <input type="text" id="team-name" placeholder="Enter team name">
-        <button id="start-game">Start Game</button>
-        <div class="player-card">
-            <h2>Player Card</h2>
-            <label for="player-name">Player Name:</label>
-            <input type="text" id="player-name" placeholder="Enter player name">
-            <label for="player-number">Player Number:</label>
-            <input type="number" id="player-number" placeholder="Enter player number">
-        </div>
-    </div>
+    <main class="container">
+        <section id="setup-screen" class="card">
+            <h1>Game Setup</h1>
+            <p class="muted">Enter your team and add up to 10 players to begin tracking stats.</p>
 
-    <div id="game-screen" style="display:none;">
-        <h1>Game Screen</h1>
-        <div id="details-panel">
-            <h2>Stat Tracking</h2>
-            <button id="points-button">+1 Point</button>
-            <button id="rebound-button">+1 Rebound</button>
-            <button id="assist-button">+1 Assist</button>
-            <button id="foul-button">+1 Foul</button>
-            <button id="steal-button">+1 Steal</button>
-        </div>
-        <div id="stats-display">
-            <h3>Current Stats</h3>
-            <p id="points">Points: 0</p>
-            <p id="rebounds">Rebounds: 0</p>
-            <p id="assists">Assists: 0</p>
-            <p id="fouls">Fouls: 0</p>
-            <p id="steals">Steals: 0</p>
-        </div>
-    </div>
+            <div class="field">
+                <label for="team-name">Team Name</label>
+                <input type="text" id="team-name" placeholder="e.g. Westside Hawks">
+            </div>
+
+            <div class="roster-header">
+                <h2>Roster</h2>
+                <span id="roster-count" class="muted-inline">0 / 10 players</span>
+            </div>
+
+            <div id="roster-list" class="roster-list"></div>
+
+            <button id="add-player" class="button button-secondary" type="button">+ Add Player</button>
+
+            <button id="start-game" class="button button-primary">Start Game</button>
+        </section>
+
+        <section id="game-screen" class="card" style="display:none;">
+            <header class="game-header">
+                <h1 id="game-title">Game</h1>
+                <button id="end-game" class="button button-ghost" type="button">End Game</button>
+            </header>
+
+            <div id="players-board" class="players-board"></div>
+        </section>
+    </main>
 
     <script type="module" src="app.js"></script>
 </body>
